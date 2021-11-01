@@ -13,3 +13,33 @@ Additional details can be found in our [related paper](https://trojansource.code
 ## Proofs-of-Concept
 
 This repository is divided into per-language subdirectories. Each subdirectory contains a series of proofs-of-concept implementing various Trojan-Source attacks as well as a README describing the compilers/interpreters with which these attacks were verified.
+
+## Compiling
+
+Some languages require compiling before execution. For your convenience, a set of GNU Makefile can
+be used to compile all example applications. The root-makefile contains presets for the most
+common compiler executables that can be overridden from the commandline.
+
+The relevant variables and their defaults are:
+
+~~~~~~~~~~~~~
+C_COMPILER ?= gcc
+CPP_COMPILER ?= g++
+JAVA_COMPILER ?= javac
+JAVA_RUNTIME ?= java
+NODE ?= node
+CSHARP_COMPILER ?= mcs
+~~~~~~~~~~~~~
+
+To build all code using these default-compiler names, issue: `make`. To change
+a default to some other value, issue:
+
+~~~~~~~~~~~~~.sh
+
+make C_COMPILER=/usr/local/bin/gcc
+
+# or
+
+export C_COMPILER=/usr/local/bin/gcc
+make
+~~~~~~~~~~~~~
